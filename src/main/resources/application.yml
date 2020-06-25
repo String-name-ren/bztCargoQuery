@@ -1,0 +1,27 @@
+server:
+  port: 12300
+  servlet:
+    context-path: /bztCargoQuery
+# profiles Config
+spring:
+  application:
+    name: bztCargoQuery
+  # dev:开发配置、test:测试配置、prod: 发布配置;
+  profiles:
+    active: ${config.active:dev}
+  jackson:
+    time-zone: GMT+8
+
+
+mybatis:
+  mapper-locations: classpath*:mybatis/**/*.xml
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+
